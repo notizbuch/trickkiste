@@ -1,0 +1,18 @@
+### cygwin-X11 display forwarding
+
+#### packages needed:
+
+Cygwin/X packages are located in the X11 category.
+* xorg-server (required, the Cygwin/X X Server)
+* xinit (required, scripts for starting the X server: xinit, startx, startwin (and a shortcut on the Start Menu to run it), startxdmcp.bat )
+* xorg-docs (optional, man pages)
+* xlaunch (optional, a wizard for starting X sessions)
+* openssh (to use ssh connections to run remote X clients)
+
+#### displaying virtualbox GUI
+
+In one cygwin bash shell run 
+```xlaunch```
+In other cygwin bash:
+```export DISPLAY=:0.0 ; ssh -Y vmadmin@server1 virtualbox```
+
