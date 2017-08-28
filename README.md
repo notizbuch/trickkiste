@@ -42,5 +42,5 @@
 
 * [cygwin](https://github.com/ub2/trickkiste/blob/master/cygwin.md)
 
-* [exim](https://github.com/ub2/trickkiste/blob/master/exim.md)
+* [exim](https://github.com/notizbuch/trickkiste/blob/master/exim.md)
 
