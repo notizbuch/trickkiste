@@ -24,6 +24,8 @@
 
 * [iptables](https://github.com/notizbuch/trickkiste/blob/master/iptables.md)
 
+* [openldap](https://github.com/notizbuch/trickkiste/blob/master/openldap.md)
+
 * [php](https://github.com/notizbuch/trickkiste/blob/master/php.md)
 
 * [samba windows shares](https://github.com/notizbuch/trickkiste/blob/master/samba%20windows%20shares.md)
