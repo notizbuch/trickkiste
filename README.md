@@ -38,6 +38,8 @@
 
 * [netcat](https://github.com/notizbuch/trickkiste/blob/master/netcat.md)
 
+* [virtualization](https://github.com/notizbuch/trickkiste/blob/master/virtualization.md)
+
 * [zfs on linux](https://github.com/notizbuch/trickkiste/blob/master/zfs%20on%20linux.md)
 
 * [cygwin](https://github.com/notizbuch/trickkiste/blob/master/cygwin.md)
