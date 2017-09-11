@@ -1,4 +1,4 @@
-### LDAP part on centos 7:
+### LDAP setup on centos 7:
 
 slapd = openldap-servers : https://www.server-world.info/en/note?os=CentOS_7&p=openldap 
 
@@ -134,10 +134,10 @@ adding new entry "cn=testuser1,dc=example,dc=com"
 
 ### Phpldapadmin
 
-# getsebool httpd_can_connect_ldap
+```getsebool httpd_can_connect_ldap```
 httpd_can_connect_ldap --> off
-# setsebool -P httpd_can_connect_ldap on
-# getsebool httpd_can_connect_ldap
+```setsebool -P httpd_can_connect_ldap on```
+```getsebool httpd_can_connect_ldap```
 httpd_can_connect_ldap --> on
 
 config.php 
