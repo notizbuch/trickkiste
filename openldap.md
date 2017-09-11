@@ -135,9 +135,13 @@ adding new entry "cn=testuser1,dc=example,dc=com"
 ### Phpldapadmin
 
 ```getsebool httpd_can_connect_ldap```
+
 httpd_can_connect_ldap --> off
+
 ```setsebool -P httpd_can_connect_ldap on```
+
 ```getsebool httpd_can_connect_ldap```
+
 httpd_can_connect_ldap --> on
 
 config.php 
