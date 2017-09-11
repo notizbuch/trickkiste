@@ -14,13 +14,14 @@ set admin pasword: olcRootPW
 
 ```
 slappasswd 
+generates:
 {SSHA}<somestring>
 
 cat chrootpw.ldif
 dn: olcDatabase={0}config,cn=config
 changetype: modify
 add: olcRootPW
-olcRootPW: {SSHA}UOeMYlMGkIpW+86w3OVJzUb5f8aHd1UY
+olcRootPW: {SSHA}<somestring>
 
 ldapadd -Y EXTERNAL -H ldapi:/// -f chrootpw.ldif
 
