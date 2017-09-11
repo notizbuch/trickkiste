@@ -2,19 +2,19 @@
 
 slapd = openldap-servers : https://www.server-world.info/en/note?os=CentOS_7&p=openldap 
 
+```
 yum -y install openldap-servers openldap-clients
 systemctl start slapd
 systemctl enable slapd
 firewall-cmd --add-service=ldap --permanent
 firewall-cmd --reload
-
+```
 
 set admin pasword: olcRootPW
 
+```
 slappasswd 
-aaaaaa
-{SSHA}UOeMYlMGkIpW+86w3OVJzUb5f8aHd1UY
-2nd: {SSHA}Ezf3DikCUR63LHAAUOIcGlpQTxnXuhJV
+{SSHA}<somestring>
 
 cat chrootpw.ldif
 dn: olcDatabase={0}config,cn=config
@@ -28,7 +28,7 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f chrootpw.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif 
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif 
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif 
-
+```
 
 chdomain.ldif 
 dn: olcDatabase={1}monitor,cn=config
@@ -88,7 +88,7 @@ ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 
 
 Test:
-ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b cn=Manager,dc=example,dc=com -w aaaaaa
+ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b cn=Manager,dc=example,dc=com -w <thepasswordusedabove>
 output:
 dn: cn=Manager,dc=example,dc=com
 objectClass: organizationalRole
@@ -96,7 +96,7 @@ cn: Manager
 description: Directory Manager
 
 
-ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b dc=example,dc=com -w aaaaaa
+ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b dc=example,dc=com -w <thepasswordusedabove>
 dn: dc=example,dc=com
 objectClass: top
 objectClass: dcObject
@@ -158,6 +158,6 @@ $servers->setValue('server','host','192.168.140.99');
 $servers->setValue('server','base',array('dc=shibb-ldap-01,dc=example,dc=com'));
 $servers->setValue('login','bind_id','cn=Manager,dc=shibb-ldap-01,dc=example,dc=com');
 $servers->setValue('login','attr','dn');
-$servers->setValue('login','bind_pass','aaaaaa');
+$servers->setValue('login','bind_pass','thepasswordusedabove');
 
 ?>
