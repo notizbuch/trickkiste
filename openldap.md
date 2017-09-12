@@ -176,3 +176,28 @@ $servers->setValue('login','bind_pass','thepasswordusedabove');
 
 ?>
 ```
+
+
+### alternative: compile OpenLDAP on Centos 7
+
+```
+http://download.oracle.com/berkeley-db/
+Berkeley DB first:
+db-6.0.19.tar.gz
+./dist/configure
+make
+make install
+/usr/local/BerkeleyDB.6.0/bin
+
+now openldap-2.4.45.tgz :
+yum -y install libtool-ltdl libtool-ltdl-devel libtool
+export CPPFLAGS="-I/usr/local/BerkeleyDB.6.0/include"
+export LDFLAGS="-L/usr/local/BerkeleyDB.6.0/lib"
+export LD_LIBRARY_PATH="/usr/local/BerkeleyDB.6.0/lib"
+./configure
+make depend 
+make
+make test
+make install
+```
+
