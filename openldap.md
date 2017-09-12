@@ -159,7 +159,7 @@ httpd_can_connect_ldap --> off
 httpd_can_connect_ldap --> on
 
 config.php 
-
+```
 <?php
 
 $config->custom->appearance['show_clear_password'] = true;
@@ -175,3 +175,4 @@ $servers->setValue('login','attr','dn');
 $servers->setValue('login','bind_pass','thepasswordusedabove');
 
 ?>
+```
