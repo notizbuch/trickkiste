@@ -32,10 +32,8 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
 
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif 
 
-```
 
 chdomain.ldif 
-
 ```
 dn: olcDatabase={1}monitor,cn=config
 changetype: modify
