@@ -10,7 +10,7 @@ firewall-cmd --add-service=ldap --permanent
 firewall-cmd --reload
 ```
 
-set admin pasword: olcRootPW
+### setting admin pasword: olcRootPW
 
 slappasswd 
 generates:
@@ -25,9 +25,13 @@ add: olcRootPW
 olcRootPW: {SSHA}<somestring>
 ```
 ldapadd -Y EXTERNAL -H ldapi:/// -f chrootpw.ldif
+
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif 
+
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif 
+
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif 
+
 ```
 
 chdomain.ldif 
