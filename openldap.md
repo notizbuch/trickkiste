@@ -32,6 +32,8 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 ```
 
 chdomain.ldif 
+
+```
 dn: olcDatabase={1}monitor,cn=config
 changetype: modify
 replace: olcAccess
@@ -61,10 +63,11 @@ olcAccess: {0}to attrs=userPassword,shadowLastChange by
 olcAccess: {1}to dn.base="" by * read
 olcAccess: {2}to * by dn="cn=Manager,dc=example,dc=com" write by * read
 ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
-
+```
 
 
 basedomain.ldif 
+```
 dn: dc=example,dc=com
 objectClass: top
 objectClass: dcObject
@@ -84,20 +87,25 @@ ou: People
 dn: ou=Group,dc=example,dc=com
 objectClass: organizationalUnit
 ou: Group
-ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
+```
 
+ldapadd -x -D cn=Manager,dc=example,dc=com -W -f basedomain.ldif
 
 
 Test:
 ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b cn=Manager,dc=example,dc=com -w <thepasswordusedabove>
+
 output:
+```
 dn: cn=Manager,dc=example,dc=com
 objectClass: organizationalRole
 cn: Manager
 description: Directory Manager
-
+```
 
 ldapsearch -LLL -x -D 'cn=Manager,dc=example,dc=com' -b dc=example,dc=com -w <thepasswordusedabove>
+
+```
 dn: dc=example,dc=com
 objectClass: top
 objectClass: dcObject
@@ -117,11 +125,14 @@ ou: People
 dn: ou=Group,dc=example,dc=com
 objectClass: organizationalUnit
 ou: Group
-
+```
 
 
 Adding user:
+
+
 ldapadd -x -D "cn=Manager,dc=example,dc=com" -w aaaaaa <<EOF
+```
 dn: cn=testuser1,dc=example,dc=com
 objectClass: inetOrgPerson
 cn: testuser1
@@ -130,6 +141,7 @@ UserPassword: bbbbbb
 sn: testlastname
 EOF
 adding new entry "cn=testuser1,dc=example,dc=com"
+```
 
 (instead of EOF block can also: -f file123.ldif )
 
