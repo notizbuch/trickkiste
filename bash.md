@@ -24,6 +24,13 @@ treat each tab as the beginning of a new field but ignore spaces ( $'somestring'
 
 ```IFS=$'\t' ; for i in `cat filewithtabs`;do echo $i | while read x ; do echo $x; done ;done```
 
+removing single quotes from filenames:
+
+```
+shopt -s nullglob
+for i in *\'* ; do mv -v "$i" "${i/\'/}" ; done
+```
+
 ## example bash script: number_checker.sh
 ```
 #!/bin/bash
