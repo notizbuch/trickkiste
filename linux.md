@@ -157,4 +157,9 @@ xrandr --output VGA1 --off
 xrandr --output LVDS1 --mode 1280x800
 ```
 
+### delete duplicate files in folder structure even if they have different names
+
+```
+fdupes -rdN <folder>
+```
 
