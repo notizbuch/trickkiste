@@ -109,3 +109,16 @@ print "selection has $rows rows\n";
 $result->finish();
 $dbh->disconnect();
 ```  
+
+### exiftool - print filename and date taken from JPG
+
+```
+#!/usr/bin/perl
+use Image::ExifTool;
+
+$exif=new Image::ExifTool;
+print $ARGV[0] . "\t";
+$exif->ExtractInfo($ARGV[0]);
+
+print $exif->GetValue('CreateDate') . "\n";
+```
