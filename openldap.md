@@ -6,7 +6,8 @@ slapd = openldap-servers : https://www.server-world.info/en/note?os=CentOS_7&p=o
 yum -y install openldap-servers openldap-clients
 systemctl start slapd
 systemctl enable slapd
-firewall-cmd --add-service=ldap --permanent
+firewall-cmd --zone=public --add-port=636/tcp --permanent
+firewall-cmd --zone=public --add-port=389/tcp --permanent
 firewall-cmd --reload
 ```
 
