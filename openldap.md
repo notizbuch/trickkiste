@@ -201,5 +201,8 @@ make depend
 make
 make test
 make install
+
+# try it:
+/usr/local/libexec/slapd -d -1 -F /usr/local/etc/openldap/
 ```
 
