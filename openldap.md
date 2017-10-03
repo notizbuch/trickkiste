@@ -149,7 +149,22 @@ adding new entry "cn=testuser1,dc=example,dc=com"
 
 ### Phpldapadmin
 
-```getsebool httpd_can_connect_ldap```
+```
+yum install httpd phpldapadmin 
+iptables -L
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --complete-reload
+cd /etc/phpldapadmin/
+vi config.php 
+cd /etc/httpd/conf.d/
+rm -f welcome.conf userdir.conf README autoindex.conf
+systemctl restart httpd
+vi phpldapadmin.conf
+   Require all granted
+systemctl restart httpd
+   http://<IP>/phpldapadmin/
+getsebool httpd_can_connect_ldap```
 
 httpd_can_connect_ldap --> off
 
