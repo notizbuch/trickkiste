@@ -228,7 +228,7 @@ make
 make test
 make install
 ```
-# generate initial configuration in cn=config format based on slapd.conf file (use /usr/local/etc/openldap/ldap.conf)
+#### generate initial configuration in cn=config format based on slapd.conf file (use /usr/local/etc/openldap/ldap.conf)
 ```
 man /usr/local/share/man/man5/ldap.conf.5
 
@@ -242,7 +242,7 @@ rootpw aaaaaa
 mkdir /tmp/myldapconf
 /usr/local/sbin/slaptest -f /tmp/ldap.conf -F /tmp/myldapconf
 ```
-# run it (foreground, debug output to terminal):
+#### run it (foreground, debug output to terminal):
 ```
 /usr/local/libexec/slapd -F /tmp/myldapconf
 ```
