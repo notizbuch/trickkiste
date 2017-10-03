@@ -201,7 +201,7 @@ make depend
 make
 make test
 make install
-
+```
 # generate initial configuration in cn=config format based on slapd.conf file (use /usr/local/etc/openldap/ldap.conf)
 ```
 mkdir mynewconfig
