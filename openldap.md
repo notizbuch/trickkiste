@@ -186,7 +186,24 @@ $servers->setValue('login','bind_pass','thepasswordusedabove');
 
 ?>
 ```
+another config.php for phpladpadmin:
+```
+<?php
 
+$config->custom->appearance['show_clear_password'] = true;
+$config->custom->appearance['obfuscate_password_display'] = false;
+
+$servers = new Datastore();
+$servers->newServer('ldap_pla');
+$servers->setValue('server','name','Local LDAP Server');
+$servers->setValue('server','host','192.168.140.113');
+$servers->setValue('server','base',array('cn=config'));
+$servers->setValue('login','bind_id','cn=startpunkt,cn=config');
+$servers->setValue('login','attr','dn');
+$servers->setValue('login','bind_pass','aaaaaa');
+
+?>
+```
 
 ### alternative: compile OpenLDAP on Centos 7
 
