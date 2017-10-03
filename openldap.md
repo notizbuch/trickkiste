@@ -164,15 +164,9 @@ vi phpldapadmin.conf
    Require all granted
 systemctl restart httpd
    http://<IP>/phpldapadmin/
-getsebool httpd_can_connect_ldap```
-
-httpd_can_connect_ldap --> off
-
-```setsebool -P httpd_can_connect_ldap on```
-
-```getsebool httpd_can_connect_ldap```
-
-httpd_can_connect_ldap --> on
+getsebool httpd_can_connect_ldap
+setsebool -P httpd_can_connect_ldap on
+```
 
 config.php 
 ```
