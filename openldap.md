@@ -241,6 +241,11 @@ rootpw aaaaaa
 
 mkdir /tmp/myldapconf
 /usr/local/sbin/slaptest -f /tmp/ldap.conf -F /tmp/myldapconf
+
+(converted rootDN and rootPW are here now:
+/tmp/myldapconf/cn=config/olcDatabase={0}config.ldif:olcRootPW:: YWFhYWFh
+/tmp/myldapconf/cn=config/olcDatabase={0}config.ldif:olcRootDN: cn=startpunkt,cn=config
+)
 ```
 #### run it (foreground, debug output to terminal):
 ```
