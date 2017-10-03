@@ -230,13 +230,20 @@ make install
 ```
 # generate initial configuration in cn=config format based on slapd.conf file (use /usr/local/etc/openldap/ldap.conf)
 ```
-mkdir mynewconfig
-/usr/local/libexec/slapd -d -1 -f /usr/local/etc/openldap/ldap.conf -F /usr/local/etc/openldap/mynewconfig
-or
-/usr/local/sbin/slaptest -f /usr/local/etc/openldap/ldap.conf -F /usr/local/etc/openldap/mynewconfig
+man /usr/local/share/man/man5/ldap.conf.5
+
+cp /usr/local/etc/openldap/ldap.conf /tmp
+
+cat >>> /tmp/ldap.conf
+database config
+rootdn "cn=startpunkt,cn=config"
+rootpw aaaaaa
+
+mkdir /tmp/myldapconf
+/usr/local/sbin/slaptest -f /tmp/ldap.conf -F /tmp/myldapconf
 ```
-# run it:
+# run it (foreground, debug output to terminal):
 ```
-/usr/local/libexec/slapd -d -1 -F /usr/local/etc/openldap/
+/usr/local/libexec/slapd -F /tmp/myldapconf
 ```
 
