@@ -209,8 +209,8 @@ mkdir mynewconfig
 or
 /usr/local/sbin/slaptest -f /usr/local/etc/openldap/ldap.conf -F /usr/local/etc/openldap/mynewconfig
 ```
-
-# try it:
+# run it:
+```
 /usr/local/libexec/slapd -d -1 -F /usr/local/etc/openldap/
 ```
 
