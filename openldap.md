@@ -202,6 +202,14 @@ make
 make test
 make install
 
+# generate initial configuration in cn=config format based on slapd.conf file (use /usr/local/etc/openldap/ldap.conf)
+```
+mkdir mynewconfig
+/usr/local/libexec/slapd -d -1 -f /usr/local/etc/openldap/ldap.conf -F /usr/local/etc/openldap/mynewconfig
+or
+/usr/local/sbin/slaptest -f /usr/local/etc/openldap/ldap.conf -F /usr/local/etc/openldap/mynewconfig
+```
+
 # try it:
 /usr/local/libexec/slapd -d -1 -F /usr/local/etc/openldap/
 ```
