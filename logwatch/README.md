@@ -16,7 +16,7 @@ systemctl enable iptables
 
 2) prepare rsyslog:
 /etc/rsyslog.conf:
-error.*                                                 /var/log/iptables
+*.error                                                 /var/log/iptables
 systemctl restart rsyslog
 
 3) prepare Postfix:
