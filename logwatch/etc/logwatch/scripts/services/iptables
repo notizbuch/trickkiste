@@ -1,0 +1,3 @@
+#!/bin/bash
+# Now take STDIN and dump it to STDOUT
+cat | grep "New Connection: "
