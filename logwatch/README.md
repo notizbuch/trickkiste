@@ -31,6 +31,7 @@ rm /etc/cron.daily/0logwatch
 
 5) configure logwatch to email reports only on new log entries in /var/log/iptables
 use the included files in the etc and opt
+add the right email addresses in /etc/logwatch/conf/logwatch.conf
 
 6) mv /usr/share/logwatch/default.conf/services/iptables.conf /usr/share/logwatch/default.conf/services/iptables.conf.orig
 (to prevent cumulative LogFile = X statements from default configuration)
