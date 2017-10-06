@@ -11,6 +11,7 @@ yum install iptables-services && systemctl enable iptables && systemctl start ip
 to log all incoming connections to unused syslog facility "error" need this rule:
 -A INPUT -p tcp --tcp-flags SYN,ACK SYN -j LOG --log-level error --log-prefix "New Connection: "
 (see /etc/sysconfig/iptables )
+systemctl restart iptables
 
 2) prepare rsyslog:
 /etc/rsyslog.conf:
