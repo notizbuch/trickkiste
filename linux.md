@@ -163,3 +163,7 @@ xrandr --output LVDS1 --mode 1280x800
 fdupes -rdN <folder>
 ```
 
+### set up webserver to serve files from current directory with one line
+```
+python -m SimpleHTTPServer
+```
