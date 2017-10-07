@@ -166,4 +166,5 @@ fdupes -rdN <folder>
 ### set up webserver to serve files from current directory with one line
 ```
 python -m SimpleHTTPServer
+python -m SimpleHTTPServer <LISTENINGPORT>
 ```
