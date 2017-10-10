@@ -10,6 +10,7 @@ systemctl stop firewalld && systemctl disable firewalld && yum remove firewalld
 yum install iptables-services && systemctl enable iptables && systemctl start iptables
 to log all incoming connections to unused syslog facility "error" need this rule:
 -A INPUT -p tcp --tcp-flags SYN,ACK SYN -j LOG --log-level error --log-prefix "New Connection: "
+-A INPUT -p icmp --icmp-type 8 -j LOG --log-level error --log-prefix "New Connection: "
 (see /etc/sysconfig/iptables )
 systemctl restart iptables
 systemctl enable iptables
