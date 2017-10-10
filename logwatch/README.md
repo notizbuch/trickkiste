@@ -11,6 +11,8 @@ yum install iptables-services && systemctl enable iptables && systemctl start ip
 to log all incoming connections to unused syslog facility "error" need this rule:
 -A INPUT -p tcp --tcp-flags SYN,ACK SYN -j LOG --log-level error --log-prefix "New Connection: "
 -A INPUT -p icmp --icmp-type 8 -j LOG --log-level error --log-prefix "New Connection: "
+possible limit ssh port to specific subnet to limit exposure:
+-A INPUT -p tcp -s 10.0.0.0/8 -m state --state NEW -m tcp --dport 22 -j ACCEPT
 (see /etc/sysconfig/iptables )
 systemctl restart iptables
 systemctl enable iptables
