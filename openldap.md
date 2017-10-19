@@ -260,3 +260,10 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /usr/local/etc/openldap/schema/inetorgperson
 
 ```
 
+#### notes:
+```
+URL	Protocol	Transport
+ldap:///	LDAP	TCP port 389
+ldaps:///	LDAP over SSL	TCP port 636
+ldapi:///	LDAP	IPC (Unix-domain socket)
+```
