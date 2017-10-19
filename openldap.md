@@ -266,4 +266,8 @@ URL	Protocol	Transport
 ldap:///	LDAP	TCP port 389
 ldaps:///	LDAP over SSL	TCP port 636
 ldapi:///	LDAP	IPC (Unix-domain socket)
+
+default ldapi:/// above uses IPC socket /usr/local/var/run/ldapi by default.
+to make slapd listen on that socket:
+/usr/local/libexec/slapd -h ldapi://%2Fusr%2Flocal%2Fvar%2Frun%2Fldapi -d 256 -F /tmp/myldapconf
 ```
