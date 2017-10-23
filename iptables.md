@@ -6,8 +6,15 @@
     (-t filter not needed here because it is the default table
     "INPUT" is a built in chain of the filter table for packets destined to local sockets
     "DROP" is the target. A user defined chain be used as well.) 
+```
 
-    drop rules from chains ="open firewall"
+#### drop packets to port 80
+```
+iptables -A INPUT -p tcp --destination-port 80 -j DROP
+```
+
+#### drop rules from chains ="open firewall"
+```
 
     iptables -F
     iptables -t filter -F INPUT (more specific with table and chain) 
