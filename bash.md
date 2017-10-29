@@ -6,6 +6,9 @@
 ignore spaces when processing lines (empty list of internal field separator IFS): 
 
 ```IFS= ; for i in `cat filename1`;do echo $i;done``` 
+or
+```cat my.list.txt | while read x ; do echo $x ; done```
+
 
 same as (despite ' '): 
 
