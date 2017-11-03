@@ -106,3 +106,7 @@ firewall-cmd --zone=public --add-port=10050/tcp --permanent
 firewall-cmd --zone=public --add-port=10050/udp --permanent
 firewall-cmd --complete-reload
 ```
+notes:
+```
+/var/log/zabbix/zabbix_agentd.log - Hostname=X has to match letter by letter to the host name specified in the host setup on the server.
+```
