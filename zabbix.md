@@ -108,5 +108,9 @@ firewall-cmd --complete-reload
 ```
 notes:
 ```
-/var/log/zabbix/zabbix_agentd.log - Hostname=X has to match letter by letter to the host name specified in the host setup on the server.
+/var/log/zabbix/zabbix_agentd.log - Hostname=X has to match
+letter by letter to the host name specified in the host setup 
+on the server.
+
+ZBX turns green in UI after an item is monitored via Zabbix agent.
 ```
