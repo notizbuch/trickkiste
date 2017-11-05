@@ -26,7 +26,7 @@ except (ValueError, KeyError, TypeError):
 print datetime.datetime.utcnow().strftime("%Y,%m,%d,%H,%M,%S") + "," + `lastBTCUSD`
 ```
 
-### put function into separate file
+### put getchar function into separate file
 
 ```
 file: myGetC.py
