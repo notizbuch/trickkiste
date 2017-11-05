@@ -25,3 +25,31 @@ except (ValueError, KeyError, TypeError):
 
 print datetime.datetime.utcnow().strftime("%Y,%m,%d,%H,%M,%S") + "," + `lastBTCUSD`
 ```
+
+### put function into separate file
+
+```
+file: myGetC.py
+===============
+import sys, tty, termios
+
+def mygetcharfunction():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+
+file: test.py
+=============
+
+from myGetC import mygetcharfunction
+
+print ('Please enter something: ')
+x = mygetcharfunction()
+print (x)
+```
