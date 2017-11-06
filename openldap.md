@@ -234,7 +234,7 @@ man /usr/local/share/man/man5/ldap.conf.5
 
 cp /usr/local/etc/openldap/ldap.conf /tmp
 
-cat >>> /tmp/ldap.conf
+cat >> /tmp/ldap.conf
 database config
 rootdn "cn=startpunkt,cn=config"
 rootpw aaaaaa
