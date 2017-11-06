@@ -115,7 +115,7 @@ on the server.
 ZBX turns green in UI after an item is monitored via Zabbix agent.
 
 test with zabbix-get:
-zabbix_get -s 192.168.232.191 --tls-connect psk --tls-psk-identity MyIdentity01 --tls-psk-file /etc/zabbix/zabbix_agentd.psk -k 'vm.memory.size[available]'
+zabbix_get -s HOSTIPADDRESS --tls-connect psk --tls-psk-identity MyIdentity01 --tls-psk-file /etc/zabbix/zabbix_agentd.psk -k 'vm.memory.size[available]'
 get item keys from zabbix UI, e.g.: vm.memory.size[available], vfs.file.cksum[/etc/passwd], system.cpu.switches, system.cpu.util[,user], system.cpu.util[,nice], system.cpu.util[,system], system.cpu.util[,iowait], system.cpu.util[,idle], system.cpu.util[,interrupt], system.cpu.util[,steal], system.cpu.util[,softirq], system.swap.size[,free], system.swap.size[,pfree], system.boottime, system.localtime, system.hostname, agent.hostname, system.cpu.intr, kernel.maxfiles, kernel.maxproc, system.users.num, proc.num[], proc.num[,,run], system.cpu.load[percpu,avg1], system.cpu.load[percpu,avg5], system.cpu.load[percpu,avg15], system.uname, system.uptime, vm.memory.size[total], system.swap.size[,total], agent.version
 ```
 
