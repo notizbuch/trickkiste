@@ -118,5 +118,7 @@ test with zabbix-get:
 zabbix_get -s HOSTIPADDRESS --tls-connect psk --tls-psk-identity MyIdentity01 --tls-psk-file /etc/zabbix/zabbix_agentd.psk -k 'vm.memory.size[available]'
 see https://www.zabbix.com/documentation/3.4/manual/appendix/items/supported_by_platform, e.g.: vm.memory.size[available], system.localtime, system.hostname, proc.num[,,run], system.cpu.load[percpu,avg1], system.uptime, agent.version
 
+send data to zabbix server custom item:
+zabbix_sender -z ZABBIXSERVERIPADDRESS -s HOSTNAMEINZABBIX --tls-connect psk --tls-psk-identity MyIdentity01 --tls-psk-file /etc/zabbix/zabbix_agentd.psk -k my-custom-item01 -o 10
 ```
 
