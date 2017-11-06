@@ -249,7 +249,8 @@ mkdir /tmp/myldapconf
 ```
 #### run it (foreground, debug output to terminal):
 ```
-/usr/local/libexec/slapd -F /tmp/myldapconf
+/usr/local/libexec/slapd -d3 -F /tmp/myldapconf
+'-d3' means foreground, debug mode
 ```
 #### configure more:
 
