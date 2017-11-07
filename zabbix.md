@@ -120,5 +120,7 @@ see https://www.zabbix.com/documentation/3.4/manual/appendix/items/supported_by_
 
 send data to zabbix server custom item:
 zabbix_sender -z ZABBIXSERVERIPADDRESS -s HOSTNAMEINZABBIX --tls-connect psk --tls-psk-identity MyIdentity01 --tls-psk-file /etc/zabbix/zabbix_agentd.psk -k my-custom-item01 -o 10
+
+when setting up an action to send an email, the user needs to have read access permission in order to be a recipient for an action.
 ```
 
