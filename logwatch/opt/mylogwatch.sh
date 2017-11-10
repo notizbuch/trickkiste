@@ -12,6 +12,7 @@ OPTIONS="--service iptables --output mail"
 $LOGWATCH_SCRIPT $OPTIONS
 
 #clean iptables to prevent duplicate reporting.
+cat /var/log/iptables >> /var/log/iptables.history
 > /var/log/iptables
 
 exit 0
