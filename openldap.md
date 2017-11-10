@@ -272,3 +272,69 @@ default ldapi:/// above uses IPC socket /usr/local/var/run/ldapi by default.
 to make slapd listen on that socket:
 /usr/local/libexec/slapd -h ldapi://%2Fusr%2Flocal%2Fvar%2Frun%2Fldapi -d 256 -F /tmp/myldapconf
 ```
+
+
+
+#### notes: used centos packages installed via yum above, then manually create DB
+```
+mkdir /usr/local/var/run
+
+cat >> /tmp/ldap.conf
+database config
+rootdn "cn=startpunkt,cn=config"
+rootpw aaaaaa
+
+mkdir /tmp/myldapconf
+/usr/local/sbin/slaptest -f /tmp/ldap.conf -F /tmp/myldapconf
+
+#start server, listening on unix socket /usr/local/var/run/ldapi
+slapd -h ldapi:///%2Fusr%2Flocal%2Fvar%2Frun%2Fldapi -F /data/setupfiles/newconf
+
+# add 
+ldapadd -D "cn=startpunkt,cn=config" -w aaaaaa -H ldapi:/// -f /etc/openldap/schema/core.ldif
+
+ldapadd -D "cn=startpunkt,cn=config" -w aaaaaa -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+
+ldapadd -D "cn=startpunkt,cn=config" -w aaaaaa -H ldapi:/// -f /etc/openldap/schema/nis.ldif 
+
+ldapadd -D "cn=startpunkt,cn=config" -w aaaaaa -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif 
+
+pkill slapd
+
+
+/tmp/myldapconf has the ldap database now.
+
+# start slapd listening on 389:
+slapd -h ldap:/// -F /tmp/myldapconf
+
+ldapsearch -h 127.0.0.1 -x -D 'cn=startpunkt,cn=config' -b "cn=config" -w aaaaaa
+(-x     Use simple authentication instead of SASL.)
+
+shows ldap database contents.
+
+database dump:
+slapcat -F /data/setupfiles/newconf/ -b "cn=config"
+slapcat -F /data/setupfiles/newconf/ -b "cn=config" > backup.ldif
+
+phpldapadmin config works:
+config.php
+<?php
+
+$config->custom->appearance['show_clear_password'] = true;
+$config->custom->appearance['obfuscate_password_display'] = false;
+
+$servers = new Datastore();
+$servers->newServer('ldap_pla');
+$servers->setValue('server','name','ldap001');
+$servers->setValue('server','host','111.111.111.111');
+$servers->setValue('server','base',array('cn=config'));
+$servers->setValue('login','bind_id','cn=startpunkt,cn=config');
+$servers->setValue('login','attr','dn');
+$servers->setValue('login','bind_pass','aaaaaa');
+
+?>
+
+
+directory can be copied and db runs on another server:
+/usr/local/libexec/slapd -d3 -F /data/newconf/
+```
