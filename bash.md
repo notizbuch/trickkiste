@@ -74,3 +74,9 @@ do
         echo
 done
 ```
+
+#### bash prompt with user@hardcodedhostname:path :
+```
+vi /etc/bashrc
+PS1='\u@myserver1:\w\$ '
+```
