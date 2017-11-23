@@ -15,5 +15,7 @@ tmux send-keys -t mysession1:0.1 'b' C-m
 tmux send-keys -t mysession1:0.2 'c' C-m
 tmux send-keys -t mysession1:0.3 'd' C-m
 
+tmux setw synchronize-panes on
+
 tmux attach -t mysession1
 ```
