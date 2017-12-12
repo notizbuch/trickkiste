@@ -1,8 +1,6 @@
-## solaris
+### handling solaris zones
 
 ```
-    handling solaris zones
-
     clone solaris zone:
      zonecfg -z oldzone01 export > newzone02.cfg
     then edit newzone02.cfg for IP etc.
@@ -18,4 +16,15 @@
      zoneadm -z my-zone uninstall -F
     login:
      zlogin -l user zonename
+```
+
+### listing disks on system, list partitions, backup drive
+```
+format
+[then select a disk]
+partition
+print
+[Ctrl-D]
+then backup using dd: backup the partition that covers all cylinders:
+dd if=/dev/rdsk/c1t1d0s2 of=c1t1d0s2.img
 ```
