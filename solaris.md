@@ -33,5 +33,5 @@ dd if=/dev/rdsk/c1t1d0s2 of=c1t1d0s2.img
 ### check CPU and memory
 ```
 psrinfo -pv
-prtconf 
+prtconf     <- lists all hardware
 ```
