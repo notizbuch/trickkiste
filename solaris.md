@@ -29,3 +29,9 @@ print
 then backup using dd: backup the partition that covers all cylinders:
 dd if=/dev/rdsk/c1t1d0s2 of=c1t1d0s2.img
 ```
+
+### check CPU and memory
+```
+psrinfo -pv
+prtconf 
+```
