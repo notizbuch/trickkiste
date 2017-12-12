@@ -20,6 +20,7 @@
 
 ### listing disks on system, list partitions, backup drive
 ```
+df -k
 format
 [then select a disk]
 partition
