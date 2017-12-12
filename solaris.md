@@ -29,6 +29,7 @@ print
 then backup using dd: backup the partition that covers all cylinders:
 dd if=/dev/rdsk/c1t1d0s2 of=c1t1d0s2.img
 ```
+see also https://docs.oracle.com/cd/E19253-01/817-5093/6mkisoqni/index.html
 
 ### check CPU and memory
 ```
