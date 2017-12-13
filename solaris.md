@@ -32,6 +32,9 @@ dd if=/dev/rdsk/c1t1d0s2 of=c1t1d0s2.img
 formatting / creating filesystem:
 -format command to create partiton
 -newfs /dev/rdsk/... to create filesystem.
+
+repair:
+fsck -y /dev/rdsk/....
 ```
 see also https://docs.oracle.com/cd/E19253-01/817-5093/6mkisoqni/index.html
 
