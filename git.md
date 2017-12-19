@@ -17,3 +17,7 @@
  1016  git checkout master
  1017  cat test 
 ```
+#### roll back a local change (accidentally changed a file)
+```
+checkout -f
+```
