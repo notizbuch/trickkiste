@@ -168,3 +168,31 @@ fdupes -rdN <folder>
 python -m SimpleHTTPServer
 python -m SimpleHTTPServer <LISTENINGPORT>
 ```
+
+#### mount VM disk partition with correct offset:
+```
+fdisk -lu sda.img
+
+root@nas:/main/ulrich/vms# fdisk -lu raw.img
+Disk raw.img: 8 GiB, 8589934592 bytes, 16777216 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xd4b232c0
+
+Device     Boot Start      End  Sectors Size Id Type
+raw.img1   *     2048 16775167 16773120   8G 83 Linux
+
+offset = start * sector size 
+2048 * 512 = 1048576
+
+losetup -o 1048576 /dev/loop0 sda.img
+
+mount /dev/loop2 mountpointforloop/
+
+===
+detach:
+umount mountpointforloop/
+losetup -d /dev/loop2
+```
