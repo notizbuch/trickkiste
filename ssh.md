@@ -1,4 +1,4 @@
-## ssh
+#### ssh various
 
 ```
     ssh public key authentication
@@ -25,3 +25,8 @@
     sshd-generate ; update-rc.d -f ssh defaults 
 ```
 
+#### ssh inside of ssh (go through jump box without to hop to target)
+
+```
+ssh -t user@10.0.0.111 'ssh user@10.0.0.222'
+```
