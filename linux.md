@@ -196,3 +196,30 @@ detach:
 umount mountpointforloop/
 losetup -d /dev/loop2
 ```
+
+#### cryptsetup create and use drive
+
+```
+SETUP:
+dd if=/dev/zero of=mydisk bs=64k count=15625
+losetup /dev/loop2 mydisk
+cryptsetup luksFormat /dev/loop2
+cryptsetup luksOpen /dev/loop2 mydecrypt
+mkfs.ext4 /dev/mapper/mydecrypt
+cryptsetup luksClose mydecrypt
+
+USE:
+losetup /dev/loop2 mydisk
+cryptsetup luksOpen /dev/loop2 mydecrypt
+mkdir mydecryptmount
+mount /dev/mapper/mydecrypt mydecryptmount
+
+(shortcut skipping losetup:
+cryptsetup luksOpen mydisk mydecrypt
+)
+
+CLOSE:
+umount mydecryptmount
+cryptsetup luksClose mydecrypt
+```
+
