@@ -223,3 +223,8 @@ umount mydecryptmount
 cryptsetup luksClose mydecrypt
 ```
 
+#### mount exfat
+```
+apt-get install exfat-fuse exfat-utils
+```
+
