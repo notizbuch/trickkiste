@@ -45,3 +45,8 @@
     display certificate:
     openssl x509 -in mydomain1.pem.crt -text 
 ```
+
+#### check expiry via HTTPS connection
+```
+openssl s_client -connect myserver:443 | openssl x509 -text -dates
+```
