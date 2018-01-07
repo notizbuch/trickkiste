@@ -120,5 +120,11 @@ $exif=new Image::ExifTool;
 print $ARGV[0] . "\t";
 $exif->ExtractInfo($ARGV[0]);
 
-print $exif->GetValue('CreateDate') . "\n";
+$date = $exif->GetValue('CreateDate');
+# remove time:
+$date =~ s/ \d\d:\d\d:\d\d$// ;
+# replace : by -
+$date =~ s/(\d\d\d\d):(\d\d):(\d\d)$/$1-$2-$3/ ;
+
+print $date . "\n";
 ```
