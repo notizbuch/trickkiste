@@ -122,7 +122,6 @@ $OUTFORMAT="datetime";    # filename<TAB>date time
 $OUTFORMAT="movecommand"; # mv path-filename date-filename
 
 $exif=new Image::ExifTool;
-print $ARGV[0] . "\t";
 $exif->ExtractInfo($ARGV[0]);
 
 $date = $exif->GetValue('CreateDate');
