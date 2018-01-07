@@ -80,3 +80,30 @@ done
 vi /etc/bashrc
 PS1='\u@myserver1:\w\$ '
 ```
+
+#### recursively replace unwanted characters in path by _
+
+```
+#!/bin/bash
+
+if [ $# -ne 2 ]
+  then
+    echo "usage: $0 startfolder depth"
+    exit 1
+fi
+
+startfolder=$1
+uptodepth=$2
+
+# directories first, starting at top level
+for i in $(seq 1 $uptodepth) ; do
+echo $i
+find $startfolder -mindepth $i -maxdepth $i -type d -regextype posix-egrep -regex '.*[ )(&$\\#!'\''].*' | rename 'y/)($\\&#! '\'' /__________/'
+done
+
+# now files, starting at top level
+for i in $(seq 1 $uptodepth) ; do
+echo $i
+find $startfolder -mindepth $i -maxdepth $i -type f -regextype posix-egrep -regex '.*[ )(&$\\#!'\''].*' | rename 'y/)($\\&#! '\'' /__________/'
+done
+```
