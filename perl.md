@@ -116,15 +116,33 @@ $dbh->disconnect();
 #!/usr/bin/perl
 use Image::ExifTool;
 
+# specify output format
+$OUTFORMAT="normal";      # filename<TAB>date
+$OUTFORMAT="datetime";    # filename<TAB>date time
+$OUTFORMAT="movecommand"; # mv path-filename date-filename
+
 $exif=new Image::ExifTool;
 print $ARGV[0] . "\t";
 $exif->ExtractInfo($ARGV[0]);
 
 $date = $exif->GetValue('CreateDate');
-# remove time:
+# get only time
+$time = $date;
+$time =~ s/.* (\d\d:\d\d:\d\d)$/$1/ ;
+# remove time from date:
 $date =~ s/ \d\d:\d\d:\d\d$// ;
 # replace : by -
 $date =~ s/(\d\d\d\d):(\d\d):(\d\d)$/$1-$2-$3/ ;
+$filewithoutpath=$ARGV[0] ;
+$filewithoutpath =~ s/.*\/(.*)$/$1/ ;
 
-print $date . "\n";
+if ( $date =~ m/\d\d\d\d-\d\d-\d\d/ && ( $OUTFORMAT eq "movecommand" ) ) { 
+print "mv $ARGV[0] $date-$filewithoutpath\n";
+}
+elsif ( $date =~ m/\d\d\d\d-\d\d-\d\d/ && ( $OUTFORMAT eq "normal" ) ) {  
+print $ARGV[0] . "\t" . $date . "\n";
+}
+elsif ( $date =~ m/\d\d\d\d-\d\d-\d\d/ && ( $OUTFORMAT eq "datetime" ) ) {  
+print $ARGV[0] . "\t" . $date . " " . $time . "\n";
+}
 ```
