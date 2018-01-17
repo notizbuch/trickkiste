@@ -16,3 +16,10 @@ GRANT INDEX, CREATE, SELECT, INSERT, UPDATE, DELETE, ALTER, LOCK TABLES ON *.* T
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --complete-reload
 ```
+
+#### show queries:
+```
+SHOW PROCESSLIST;
+SHOW FULL PROCESSLIST;
+select user from information_schema.processlist;
+```
