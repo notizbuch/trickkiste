@@ -23,3 +23,8 @@ SHOW PROCESSLIST;
 SHOW FULL PROCESSLIST;
 select user from information_schema.processlist;
 ```
+#### show / create indices:
+```
+show indexes from mytable1;
+create index `myfield` on mytable1(`myfield`);
+```
