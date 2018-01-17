@@ -10,3 +10,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%' WITH GRANT OPTION;
 CREATE USER 'user2'@'%' IDENTIFIED BY 'password2’;
 GRANT INDEX, CREATE, SELECT, INSERT, UPDATE, DELETE, ALTER, LOCK TABLES ON *.* TO 'user2'@'%' IDENTIFIED BY 'password2';
 ```
+
+#### allow port 3306 on firewall 
+```
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --complete-reload
+```
