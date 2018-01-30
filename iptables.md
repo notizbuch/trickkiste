@@ -46,3 +46,10 @@ iptables -A INPUT -p tcp --destination-port 80 -j DROP
     iptables -P OUTPUT DROP
     iptables -P FORWARD DROP 
 ```
+
+#### local port forward:
+
+```
+iptables -t nat -I PREROUTING --src 0/0 --dst 10.19.10.207 -p tcp --dport 443 -j REDIRECT --to-ports 8443
+```
+can be in /etc/rc.local
