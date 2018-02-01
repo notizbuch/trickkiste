@@ -28,3 +28,14 @@ select user from information_schema.processlist;
 show indexes from mytable1;
 create index `myfield` on mytable1(`myfield`);
 ```
+
+#### my.cnf
+```
+datadir=/var/lib/mysql
+max_allowed_packet = 64M
+query_cache_size = 32M
+innodb_log_file_size = 256M
+init-connect='SET NAMES utf8'
+character-set-server = utf8
+collation-server = utf8_unicode_ci
+```
