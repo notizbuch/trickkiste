@@ -228,3 +228,10 @@ cryptsetup luksClose mydecrypt
 apt-get install exfat-fuse exfat-utils
 ```
 
+#### mount logical volumes
+```
+vgscan
+vgchange -ay someVolGrpName
+lvs
+mount /dev/someVolGrpName/X /mnt/directory
+```
