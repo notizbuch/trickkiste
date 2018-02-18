@@ -19,7 +19,7 @@ send "PASSWORDHERE\n";
 interact
 ```
 
-#### connect to HTTPS site using openssl, sedn Cookies
+#### connect to HTTPS site using openssl, send Cookies
 
 ```
 #!/usr/bin/expect
