@@ -232,6 +232,7 @@ apt-get install exfat-fuse exfat-utils
 ```
 vgscan
 vgchange -ay someVolGrpName
+(or activate all known volumes: vgchange -a y )
 lvs
 mount /dev/someVolGrpName/X /mnt/directory
 ```
