@@ -53,3 +53,24 @@ iptables -A INPUT -p tcp --destination-port 80 -j DROP
 iptables -t nat -I PREROUTING --src 0/0 --dst 192.168.1.1 -p tcp --dport 443 -j REDIRECT --to-ports 8443
 ```
 can be in /etc/rc.local
+
+
+#### firewalld
+```
+firewall-cmd --list-all
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+allow specific source:
+firewall-cmd --permanent --zone=public --add-rich-rule='
+  rule family="ipv4"
+  source address="192.168.0.1/32"
+  port protocol="tcp" port="80" accept'
+
+firewall-cmd --complete-reload
+
+Port forwarding:
+firewall-cmd --zone=public --add-masquerade --permanent
+firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=8080 --permanent
+
+config file is at /etc/firewalld/zones/public.xml
+```
