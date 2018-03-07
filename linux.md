@@ -236,3 +236,20 @@ vgchange -ay someVolGrpName
 lvs
 mount /dev/someVolGrpName/X /mnt/directory
 ```
+#### examine disk via Self-Monitoring, Analysis, and Reporting Technology ( S.M.A.R.T )
+```
+package: smartmontools
+
+see available tests:
+smartctl -c /dev/sdc
+
+run test:
+smartctl -t short /dev/sda
+or:
+smartctl -t long /dev/sda
+
+results:
+smartctl -a /dev/sda 
+or selectively:
+smartctl -l selftest /dev/sda
+```
