@@ -53,3 +53,14 @@ print ('Please enter something: ')
 x = mygetcharfunction()
 print (x)
 ```
+
+### encode and decode URLs:
+
+```
+import urllib
+import json
+urllib.urlencode({'data"':'hello'})
+'data%22=hello'
+urllib.unquote('data%22=hello').decode('utf8')
+u'data"=hello'
+```
