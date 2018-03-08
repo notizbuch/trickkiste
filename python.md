@@ -59,8 +59,8 @@ print (x)
 ```
 import urllib
 import json
-urllib.urlencode({'data"':'hello'})
-'data%22=hello'
-urllib.unquote('data%22=hello').decode('utf8')
-u'data"=hello'
+urllib.urlencode({'data"':'hello','data2"':'hello2'})
+'data2%22=hello2&data%22=hello'
+urllib.unquote('data2%22=hello2&data%22=hello').decode('utf8')
+u'data2"=hello2&data"=hello'
 ```
