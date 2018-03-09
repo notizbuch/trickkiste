@@ -253,3 +253,8 @@ smartctl -a /dev/sda
 or selectively:
 smartctl -l selftest /dev/sda
 ```
+
+#### add IP address to interface
+```
+ip addr add 192.168.1.10/24 dev enp8s0
+```
