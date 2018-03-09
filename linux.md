@@ -258,3 +258,7 @@ smartctl -l selftest /dev/sda
 ```
 ip addr add 192.168.1.10/24 dev enp8s0
 ```
+#### add route using ip command
+```
+ip route add 192.168.1.0/24 dev tun0
+```
