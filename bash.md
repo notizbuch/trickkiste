@@ -6,6 +6,7 @@
 ignore spaces when processing lines (empty list of internal field separator IFS): 
 
 ```IFS= ; for i in `cat filename1`;do echo $i;done``` 
+
 ```IFS=$'\n' ; for i in `cat filename1`;do echo $i;done``` 
 
 or
