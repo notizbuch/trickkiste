@@ -1,4 +1,4 @@
-#### basic configuration hat works for wifi
+#### basic configuration that works for wifi
 
 ```
 clients.conf:
