@@ -16,6 +16,8 @@ http {
         server_name b.example.com;
     location / {
         proxy_pass http://192.168.1.10;
+        proxy_set_header Host            b.example.com;
+        proxy_set_header X-Forwarded-For $remote_addr;
     }
     }
     server {
@@ -32,5 +34,7 @@ http {
     sendfile        on;
     keepalive_timeout  65;
 }
+
+( proxy_set_header can change or prevent Host header from changing if needed )
 
 ```
