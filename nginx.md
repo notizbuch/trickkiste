@@ -38,3 +38,13 @@ http {
 ( proxy_set_header can change or prevent Host header from changing if needed )
 
 ```
+
+#### IP restriction
+```
+        location / {
+                allow   192.168.1.0/24;
+                allow   192.168.2.0/24;
+                deny    all;
+                ...
+        }
+```
