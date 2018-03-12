@@ -11,8 +11,8 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
     server {
-    listen       80;
-    listen       [::]:80;
+    listen       80 default_server;
+    listen       [::]:80 default_server;
         server_name b.example.com;
     location / {
         proxy_pass http://192.168.1.10;
