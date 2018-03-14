@@ -64,3 +64,14 @@ urllib.urlencode({'data"':'hello','data2"':'hello2'})
 urllib.unquote('data2%22=hello2&data%22=hello').decode('utf8')
 u'data2"=hello2&data"=hello'
 ```
+
+### read csv
+```
+#!/usr/bin/python
+
+import csv
+with open('mydata.csv', 'rb') as csvfile:
+  datareader = csv.reader(csvfile, delimiter='|', quotechar='\"')
+  for row in datareader:
+    print ', '.join(row)
+```
