@@ -72,6 +72,8 @@ u'data2"=hello2&data"=hello'
 import csv
 with open('mydata.csv', 'rb') as csvfile:
   datareader = csv.reader(csvfile, delimiter='|', quotechar='\"')
+  #datareader = csv.DictReader(csvfile)
   for row in datareader:
     print ', '.join(row)
+    #print(row['fieldnamefromfirstline1'], row['fieldnamefromfirstline2'])
 ```
