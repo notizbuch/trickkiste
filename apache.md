@@ -5,3 +5,7 @@ cat > /etc/httpd/conf.d/info.conf
     SetHandler server-info
 </Location>
 ```
+#### info about configuration 2
+```
+httpd -S
+```
