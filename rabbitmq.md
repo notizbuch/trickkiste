@@ -20,7 +20,7 @@ rabbitmqctl set_permissions -p / test ".*" ".*" ".*"
 notes:
 ```
 default config file location: /etc/rabbitmq/rabbitmq.conf (may not exist after installation)
-listeners.tcp.other_ip   = 10.19.11.206:5672
+listeners.tcp.other_ip   = 192.168.1.1:5672
 loopback_users.guest = false
 (makes it accessible from everywhere)
 
