@@ -14,19 +14,23 @@ http {
     listen       80 default_server;
     listen       [::]:80 default_server;
         server_name b.example.com;
-    location / {
-        proxy_pass http://192.168.1.10;
-        proxy_set_header Host            b.example.com;
-        proxy_set_header X-Forwarded-For $remote_addr;
-    }
+        location / {
+            allow   192.30.252.0/22;
+            deny    all;
+            proxy_pass http://192.168.1.10;
+            proxy_set_header Host            b.example.com;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
     }
     server {
     listen       80;
     listen       [::]:80;
         server_name a.example.com;
-    location / {
-        proxy_pass http://192.168.1.11;
-    }
+        location / {
+            resolver 8.8.8.8 8.8.4.4;
+            set $proxy_pass_url http://myurl.example.com:20123;
+            proxy_pass $proxy_pass_url;
+        }
     }
 
     access_log  off;
