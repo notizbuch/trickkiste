@@ -21,6 +21,8 @@
 
 #### copy files in from archive:
 ```cpio -idv < files.cpio```
+or
+```cpio --no-absolute-filenames -idv < files.cpio```
 
 ( -d will create directories if they don't exist )
 
