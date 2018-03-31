@@ -21,6 +21,7 @@
 
 #### copy files in from archive:
 ```cpio -idv < files.cpio``` 
+
 or 
 
 ```cpio --no-absolute-filenames -idv < files.cpio``` 
