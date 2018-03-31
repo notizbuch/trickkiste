@@ -20,9 +20,10 @@
 (if relative paths are needed, use relative paths when creating archive)
 
 #### copy files in from archive:
-```cpio -idv < files.cpio```
+```cpio -idv < files.cpio``` 
 or 
-```cpio --no-absolute-filenames -idv < files.cpio```
+
+```cpio --no-absolute-filenames -idv < files.cpio``` 
 
 ( -d will create directories if they don't exist )
 
