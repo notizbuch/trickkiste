@@ -235,7 +235,14 @@ vgchange -ay someVolGrpName
 (or activate all known volumes: vgchange -a y )
 lvs
 mount /dev/someVolGrpName/X /mnt/directory
+
+show physical volume:
+pvdisplay
+pvscan
 ```
+
+
+
 #### examine disk via Self-Monitoring, Analysis, and Reporting Technology ( S.M.A.R.T )
 ```
 package: smartmontools
