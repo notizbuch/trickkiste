@@ -236,9 +236,11 @@ vgchange -ay someVolGrpName
 lvs
 mount /dev/someVolGrpName/X /mnt/directory
 
-show physical volume:
-pvdisplay
+more info:
 pvscan
+vgdisplay -v
+pvdisplay -v
+lvdisplay -v
 ```
 
 
