@@ -271,3 +271,9 @@ ip addr add 192.168.1.10/24 dev enp8s0
 ```
 ip route add 192.168.1.0/24 dev tun0
 ```
+
+#### rescue (ddrescue) - skip bad blocks, retry only a number of times:
+```
+ddrescue -r2 /data/mycorruptsourcefile /mnt/a/mycopyofcorruptsourcefile
+ddrescue -d -r2 /dev/sda /mnt/a/mycorruptdriveimage
+```
