@@ -11,3 +11,8 @@ qemu-system-x86_64 -m 8192 -hda mydisk.img -boot d -cdrom /data/ISOs/ubuntu-17.0
 ```
 vmkfstools -i /vmfs/volumes/TERABYTE01/debian9-stretch-orig/debian9-stretch-orig.vmdk /vmfs/volumes/TERABYTE01/util/util2.vmdk
 ```
+
+#### find IP address of virtualbox guest
+```
+VBoxManage guestproperty get MYVIRTUALMACHINENAME "/VirtualBox/GuestInfo/Net/0/V4/IP"
+```
