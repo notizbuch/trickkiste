@@ -1,4 +1,4 @@
-## world readable / writeable share on Ubuntu 18.04
+#### world readable / writeable share on Ubuntu 18.04
 ```
 sudo apt install samba samba-common
 
@@ -25,7 +25,7 @@ systemctl start smbd
 ```
 
 
-## samba windows shares
+#### samba windows shares
 
 ```
         mount Windows share from Linux
