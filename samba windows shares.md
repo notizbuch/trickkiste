@@ -1,3 +1,30 @@
+## world readable / writeable share on Ubuntu 18.04
+```
+sudo apt install samba samba-common
+
+mkdir /data
+touch /data/test
+
+cat > /etc/samba/smb.conf <<EOF
+[global]
+map to guest = bad user
+usershare allow guests = yes
+
+[data]
+comment = File Share
+path = /data
+browsable =yes
+writable = yes
+guest ok = yes
+read only = no
+force user = nobody
+EOF
+
+systemctl enable smbd
+systemctl start smbd
+```
+
+
 ## samba windows shares
 
 ```
