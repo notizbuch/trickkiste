@@ -40,3 +40,8 @@ cat somefile
 ```
 checkout -f
 ```
+
+#### store crednetials
+```
+git config --global credential.helper cache
+```
