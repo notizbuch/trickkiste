@@ -12,3 +12,9 @@ standalone computer => secpol.msc
 ->User Rights Assignment
 ->"Deny log on locally"
 ```
+
+#### file sharing and server message block (SMB) ports
+```
+UDP 135-139,445
+TCP 135-139,445
+```
