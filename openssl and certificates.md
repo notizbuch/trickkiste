@@ -1,8 +1,7 @@
 ## ssl and certificates
 
+#### generating a private key - public key pair / certificate e.g. for Apache
 ```
-    generating a private key - public key pair / certificate e.g. for Apache
-
     generate key pair in .pem (text) format:
      openssl genrsa -des3 -out keys.pem 2048
     optionally remove password (note in key file it says "encrypted" or not):
@@ -15,9 +14,26 @@
      openssl req -in pubkey.key.csr -text -pubkey -subject -verify
     sign the CSR with a key (here it's the same private key = self-signed):
      openssl x509 -req -days 36500 -in pubkey.key.csr -signkey keys.pem -out pubkey.key.crt 
+```
 
-    generating a certificate chain for testing
+#### example use in NGINX
+```
+server {
+  listen              443      default_server ssl;    
+  listen              [::]:443 default_server ssl;    
+  server_name         _;
+  ssl_certificate     /etc/myssl/pubkey.key.crt;
+  ssl_certificate_key /etc/myssl/keys.pem.key_no_password;
+  ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;                                     
+  ssl_ciphers         HIGH:!aNULL:!MD5;                                          
+  location / {                         
+     root /data/www/default;
+  }                                    
+}
+```
 
+#### generating a certificate chain for testing
+```
     openssl genrsa -des3 -out myroot.pem 2048
     openssl rsa -in myroot.pem -out myroot.pem_nopw
     mv myroot.pem_nopw myroot.pem
