@@ -18,3 +18,8 @@ standalone computer => secpol.msc
 UDP 135-139,445
 TCP 135-139,445
 ```
+
+#### local users and groups
+```
+lusrmgr.msc
+```
