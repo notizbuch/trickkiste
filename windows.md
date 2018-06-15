@@ -27,4 +27,5 @@ lusrmgr.msc
 #### bring up SQL server manager to make it listen on TCP socket
 ```
 C:\Windows\SysWOW64\SQLServerManager14.msc
+disable other access methods, server will listen on 0.0.0.0:1433
 ```
