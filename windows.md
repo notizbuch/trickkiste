@@ -23,3 +23,8 @@ TCP 135-139,445
 ```
 lusrmgr.msc
 ```
+
+#### bring up SQL server manager to make it listen on TCP socket
+```
+C:\Windows\SysWOW64\SQLServerManager14.msc
+```
