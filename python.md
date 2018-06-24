@@ -77,3 +77,21 @@ with open('mydata.csv', 'rb') as csvfile:
     print ', '.join(row)
     #print(row['fieldnamefromfirstline1'], row['fieldnamefromfirstline2'])
 ```
+
+### record mp3 stream with date and time in filename
+```
+#!/usr/bin/python3
+
+import datetime
+import time
+import os
+import subprocess
+now = datetime.datetime.now()
+print(now)
+outputfilename = "%s.mp3" % (now)
+customtime = time.strftime("%Y%m%d_%H%M")
+outputfilename2 = "stream-%s.mp3" % (customtime)
+
+print("writing %s" % outputfilename2)
+subprocess.call(["/usr/bin/ffmpeg", "-t", "3600", "-y", "-i", "https://example.com/stream.mp3", outputfilename2], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
+```
