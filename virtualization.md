@@ -16,3 +16,10 @@ vmkfstools -i /vmfs/volumes/TERABYTE01/debian9-stretch-orig/debian9-stretch-orig
 ```
 VBoxManage guestproperty get MYVIRTUALMACHINENAME "/VirtualBox/GuestInfo/Net/0/V4/IP"
 ```
+
+#### use hardware disk in VM
+```
+blkid
+ls -l /dev/disk/by-id/
+/usr/bin/VBoxManage internalcommands createrawvmdk -filename "/path1/disk1.vmdk" -rawdisk /dev/disk/by-id/diskid1
+```
