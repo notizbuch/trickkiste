@@ -29,3 +29,9 @@ lusrmgr.msc
 C:\Windows\SysWOW64\SQLServerManager14.msc
 disable other access methods, server will listen on 0.0.0.0:1433
 ```
+
+
+#### cygwin : rsync making all files with accessible permissions
+```
+rsync.exe -rv --chmod=ugo=rwx ...
+```
