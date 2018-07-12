@@ -16,3 +16,9 @@ In one cygwin bash shell run
 In other cygwin bash:
 ```export DISPLAY=:0.0 ; ssh -Y vmadmin@server1 virtualbox```
 
+#### create files with no weird acls
+```
+vi /etc/fstab
+add noacl option
+rsync -rv --chmod=ugo=rwx a b
+```
