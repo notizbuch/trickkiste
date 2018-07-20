@@ -35,3 +35,7 @@ disable other access methods, server will listen on 0.0.0.0:1433
 ```
 rsync.exe -rv --chmod=ugo=rwx ...
 ```
+#### on screen keyboard
+```
+OSK.EXE
+```
