@@ -3,6 +3,7 @@
 minikube start --vm-driver=virtualbox
 kubectl run trickkiste1 --image=nginx --port=80
 kubectl proxy    (or kubectl proxy --address='myIP' )
+kubectl get pods
 curl http://localhost:8001/api/v1/namespaces/default/pods/trickkiste1-PODABCDEF-PODGHJKL/proxy/
 kubectl expose deployment/trickkiste1 --type="NodePort" --port 80
 kubectl get services
