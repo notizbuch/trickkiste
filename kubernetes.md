@@ -15,3 +15,45 @@ kubectl delete deployment Y
 minikube stop
 minikube delete
 ```
+
+
+#### getting started
+```
+cat << EOF > Dockerfile
+FROM nginx
+RUN echo hello notizbuch > /usr/share/nginx/html/index.html
+EOF
+
+eval $(minikube docker-env)
+docker build -t image01:1.0 .
+
+cat << EOF > deployment01.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment01
+spec:
+  selector:
+    matchLabels:
+      app: appname01
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: appname01
+    spec:
+      containers:
+      - name: httpfromimage01
+        imagePullPolicy: Never
+        image: image01:1.0
+        ports:
+        - containerPort: 80
+EOF
+
+kubectl apply -f deployment01.yaml
+
+kubectl expose deployment deployment01 --type=NodePort
+
+curl $(minikube ip):32244
+hello notizbuch
+```
