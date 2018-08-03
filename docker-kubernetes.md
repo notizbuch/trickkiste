@@ -57,3 +57,26 @@ kubectl expose deployment deployment01 --type=NodePort
 curl $(minikube ip):32244
 hello notizbuch
 ```
+
+#### enable containers to interact via DNS
+```
+docker network create mynetwork
+docker run --name alpine1 --network mynetwork -ti alpine /bin/sh
+```
+now ping alpine1 works from another container.
+
+#### enable pods to interact via DNS
+```
+kubectl run mynginx1 --image=nginx
+
+kubectl run myalp4 -ti --image=alpine /bin/sh
+ping mynginx1
+ping: bad address 'mynginx1'
+
+kubectl expose deployment mynginx1 --port=80 --name=mynginx1 --type=ClusterIP
+
+kubectl run myalp5 -ti --image=alpine /bin/sh
+apk add --no-cache curl
+curl mynginx1
+WORKS
+```
