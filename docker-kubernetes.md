@@ -85,4 +85,5 @@ WORKS
 ```
 kubectl get all --all-namespaces
 kubectl config use-context XYZ
+context has to be added in .kube/config before.
 ```
