@@ -85,7 +85,7 @@ WORKS
 ```
 kubectl get namespaces
 kubectl get all --all-namespaces
-kubectl config use-context XYZ
+kubectl config use-context mytest01
 context has to be added in .kube/config before.
 
 Create:
@@ -101,4 +101,6 @@ kubectl create -f -
   }
 }
 
+Delete:
+kubectl delete namespaces mytest01
 ```
