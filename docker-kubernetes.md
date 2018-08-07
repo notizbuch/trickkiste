@@ -81,10 +81,24 @@ curl mynginx1
 WORKS
 ```
 
-#### no output - probably wrong namespace
+#### Namespaces - if no output then probably wrong namespace
 ```
 kubectl get namespaces
 kubectl get all --all-namespaces
 kubectl config use-context XYZ
 context has to be added in .kube/config before.
+
+Create:
+kubectl create -f -
+{
+  "kind": "Namespace",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "mytest01",
+    "labels": {
+      "name": "mytest01"
+    }
+  }
+}
+
 ```
