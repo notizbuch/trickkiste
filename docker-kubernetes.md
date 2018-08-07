@@ -80,3 +80,9 @@ apk add --no-cache curl
 curl mynginx1
 WORKS
 ```
+
+#### no output - probably wrong namespace
+```
+kubectl get all --all-namespaces
+kubectl config use-context XYZ
+```
