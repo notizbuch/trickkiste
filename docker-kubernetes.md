@@ -86,7 +86,7 @@ WORKS
 kubectl get namespaces
 kubectl get all --all-namespaces
 kubectl config use-context mytest01
-context has to be added in .kube/config before.
+context has to be in .kube/config before.
 
 Create:
 kubectl create -f -
@@ -100,6 +100,12 @@ kubectl create -f -
     }
   }
 }
+
+create entry in .kube/config :
+kubectl config set-context mytest01 --namespace=mytest01 --cluster=somecluster
+
+Use it:
+kubectl config use-context mytest01
 
 Delete:
 kubectl delete namespaces mytest01
