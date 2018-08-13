@@ -110,3 +110,9 @@ kubectl config use-context mytest01
 Delete:
 kubectl delete namespaces mytest01
 ```
+
+#### port forwarding
+```
+kubectl port-forward -n NAMESPACE PODNAME PORT
+now localhost:PORT will forward to PORT on PODNAME
+```
