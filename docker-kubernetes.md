@@ -116,3 +116,10 @@ kubectl delete namespaces mytest01
 kubectl port-forward -n NAMESPACE PODNAME PORT
 now localhost:PORT will forward to PORT on PODNAME
 ```
+
+#### docker image as mysql client
+```
+docker run -it mysql /usr/bin/mysql -h 1.1.1.1 -u user1 -pPassword1 database1
+```
+
+
