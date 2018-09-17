@@ -121,5 +121,24 @@ now localhost:PORT will forward to PORT on PODNAME
 ```
 docker run -it mysql /usr/bin/mysql -h 1.1.1.1 -u user1 -pPassword1 database1
 ```
+#### kubernetes as mysql client
+```
+kubectl config use-context wordpress
+
+kubectl create -f mysql-connect.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-tmp1
+spec:
+  containers:
+  - name: mysql
+    image: mysql
+    env:
+    - name: MYSQL_ALLOW_EMPTY_PASSWORD
+      value: "1"
+
+kubectl exec -it mysql-tmp1 -- /usr/bin/mysql -h host1 -uUser1 -pPassword1 
+```
 
 
