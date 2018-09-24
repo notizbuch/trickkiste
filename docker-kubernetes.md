@@ -141,4 +141,70 @@ spec:
 kubectl exec -it mysql-tmp1 -- /usr/bin/mysql -h host1 -uUser1 -pPassword1 
 ```
 
+#### playing around with services and ingress using examples from the k8s site
+```
+cat >echoserver-namespace.yaml<<EOF
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: echoserver
+EOF
 
+cat >echoserver-deployment.yaml<<EOF
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: echoserver
+  namespace: echoserver
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: echoserver
+    spec:
+      containers:
+      - image: gcr.io/google_containers/echoserver:1.4
+        imagePullPolicy: Always
+        name: echoserver
+        ports:
+        - containerPort: 8080
+EOF
+
+cat >echoserver-service.yaml<<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: echoserver
+  namespace: echoserver
+spec:
+  ports:
+    - port: 30123
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: echoserver
+EOF
+
+cat >echoserver-ingress-normal.yaml<<EOF
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: echoserver
+  namespace: echoserver
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: echoserver.activestate.build
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: echoserver
+              servicePort: 8080
+EOF
+
+
+kubectl expose deployment echoserver --type=NodePort --name=nodeporttest
+```
