@@ -208,3 +208,59 @@ EOF
 
 kubectl expose deployment echoserver --type=NodePort --name=nodeporttest
 ```
+
+
+#### K8s nginx with Ingress
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx1
+  template:
+    metadata:
+      labels:
+        app: nginx1
+    spec:
+      containers:
+      - name: nginx1
+        image: nginx:1.7.9
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx1-service
+spec:
+  ports:
+    - port: 30124
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: nginx1
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx1
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: nginx1.activestate.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nginx1-service
+              servicePort: 30124
+```
