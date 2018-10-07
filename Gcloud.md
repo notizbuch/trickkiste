@@ -14,3 +14,9 @@ docker push gcr.io/PROJECTID/mynginx1:tag1
 https://gcr.io/PROJECTID/mynginx1
 
 ```
+
+#### create public Loadbalancer in Kubernetes 
+```
+kubectl expose deployment nginx-1 --type=LoadBalancer --port 80 --target-port 80
+```
+
