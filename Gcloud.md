@@ -15,6 +15,14 @@ https://gcr.io/PROJECTID/mynginx1
 
 ```
 
+#### connect to project after creation
+```
+gcloud auth login
+gcloud config set project aaaa-123456
+gcloud container clusters get-credentials cluster1
+kubectl get po
+```
+
 #### create public Loadbalancer in Kubernetes 
 ```
 kubectl expose deployment nginx-1 --type=LoadBalancer --port 80 --target-port 80
