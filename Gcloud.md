@@ -15,7 +15,7 @@ https://gcr.io/PROJECTID/mynginx1
 
 ```
 
-#### connect to project after creation
+#### connect to cluster in project after creation
 ```
 gcloud auth login
 gcloud config set project aaaa-123456
