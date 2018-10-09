@@ -196,7 +196,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: echoserver.activestate.build
+    - host: echoserver.example.com
       http:
         paths:
           - path: /
@@ -256,7 +256,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: nginx1.activestate.com
+    - host: nginx1.example.com
       http:
         paths:
           - path: /
