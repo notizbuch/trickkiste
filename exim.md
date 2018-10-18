@@ -39,6 +39,9 @@ timeout_frozen_after = 7d
 
 begin acl
 
+
+
+
 acl_check_mail:
 
   accept
@@ -109,6 +112,10 @@ begin retry
 begin rewrite
 
 begin authenticators
+```
 
 
+under Ubuntu to listen on all interfaces add to /etc/default/exim4
+```
+SMTPLISTENEROPTIONS='-oX 0.0.0.0.25'
 ```
