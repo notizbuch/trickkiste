@@ -19,7 +19,7 @@ tls_advertise_hosts = *
 tls_certificate = /etc/pki/tls/certs/exim.pem
 tls_privatekey = /etc/pki/tls/private/exim.pem
 
-local_interfaces = 0.0.0.0
+interface = 0.0.0.0
 
 daemon_smtp_ports = 25
 
