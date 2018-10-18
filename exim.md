@@ -19,6 +19,7 @@ tls_advertise_hosts = *
 tls_certificate = /etc/pki/tls/certs/exim.pem
 tls_privatekey = /etc/pki/tls/private/exim.pem
 
+local_interfaces = 0.0.0.0
 
 daemon_smtp_ports = 25
 
@@ -66,9 +67,9 @@ bug_notify_as:
 
 bug_accept:
   driver = accept
-  #condition = ${if eqi {$local_part}{bugzilla}}
-  condition = ${if ! eqi{$sender_address}{bugzilla@bugs.example.com}}
-  condition = ${if eqi {$domain}{bugs.example.com}}
+  #condition = ${if eqi {$local_part}{user123}}
+  condition = ${if ! eqi{$sender_address}{user456@other.domain.com}}
+  condition = ${if eqi {$domain}{other.domain.com}}
   transport = mypipe
   unseen
 
@@ -80,7 +81,7 @@ begin transports
 
 remote_smtp:
   driver = smtp
-  hosts = box31.example.com
+  hosts = smarthost.example.com
   hosts_override
 
 local_delivery:
