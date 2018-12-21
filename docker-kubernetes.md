@@ -268,4 +268,7 @@ spec:
 #### RBAC assign a role 
 ```
 kubectl create rolebinding blah --clusterrole=admin --user=users:myuser 
+
+e.g. when GKE sets up dashboard and complains lack of permissions 
+kubectl create rolebinding blah2 --clusterrole=admin --user=system:serviceaccount:kube-system:kubernetes-dashboard
 ```
