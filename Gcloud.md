@@ -28,3 +28,8 @@ kubectl get po
 kubectl expose deployment nginx-1 --type=LoadBalancer --port 80 --target-port 80
 ```
 
+#### list instances and ssh into them
+```
+gcloud compute instances list
+gcloud compute --project "myproject" ssh --zone "us-central1-f" "gke-some-instance"
+```
