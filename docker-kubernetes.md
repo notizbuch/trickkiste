@@ -264,3 +264,8 @@ spec:
               serviceName: nginx1-service
               servicePort: 30124
 ```
+
+#### RBAC assign a role 
+```
+kubectl create rolebinding blah --clusterrole=admin --user=users:myuser 
+```
