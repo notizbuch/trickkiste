@@ -91,9 +91,11 @@ in /etc/rc.local
 mplayer -ss 500 -endpos 5 VOICE1130_002.MP3 -novideo -ao pcm:file=1.wav
 (endpos= seconds from start of playback, ss=seconds from the beginning of the file) 
 
-output to text:
+video output to text:
 CACA_GEOMETRY=180x60 mplayer -vo caca ....
 mplayer -vo matrixview ....
+or in tmux:
+DISPLAY= mpv --quiet -vo caca ....
 ```
 
 ## image manipulation
