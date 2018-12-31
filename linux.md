@@ -90,6 +90,10 @@ in /etc/rc.local
 ```
 mplayer -ss 500 -endpos 5 VOICE1130_002.MP3 -novideo -ao pcm:file=1.wav
 (endpos= seconds from start of playback, ss=seconds from the beginning of the file) 
+
+output to text:
+mplayer -vo caca ....
+mplayer -vo matrixview ....
 ```
 
 ## image manipulation
