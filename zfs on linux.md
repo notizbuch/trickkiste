@@ -88,3 +88,8 @@ systemctl enable zfs.target
 ```
 zpool iostat -v
 ```
+
+#### mount ZFS after re-installing OS
+`pacman -S zfs`
+`zpool import` # shows what is available for import
+`zpool import -f mypool`
