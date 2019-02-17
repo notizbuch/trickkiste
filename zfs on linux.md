@@ -93,3 +93,13 @@ zpool iostat -v
 `pacman -S zfs`  
 `zpool import` # shows what is available for import  
 `zpool import -f mypool`  
+
+#### ensure it auto mounts after reboot
+```
+zpool set cachefile=/etc/zfs/zpool.cache mypool
+systemctl enable zfs.target
+systemctl enable zfs-import-cache
+systemctl enable zfs-mount
+systemctl enable zfs-import.target
+```
+
