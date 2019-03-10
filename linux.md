@@ -1,5 +1,10 @@
 # linux
 
+## mount so regular user has full access
+```
+mount -t cifs -o file_mode=0777,dir_mode=0777 //nas/share1 /mnt/nas/share1
+```
+
 ## install tmux on CentOS 6.4
 
 ```
