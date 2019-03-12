@@ -294,3 +294,8 @@ ddrescue -d -r2 /dev/sda /mnt/a/mycorruptdriveimage
 yum install xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils xeyes
 ```
 now xeyes works via SSH X forwarding.
+
+#### simple port forwarding
+```
+socat tcp-listen:PORT,reuseaddr,fork tcp:DESTINATIONIP:PORT
+```
