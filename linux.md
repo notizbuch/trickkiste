@@ -4,6 +4,10 @@
 ```
 mount -t cifs -o file_mode=0777,dir_mode=0777 //nas/share1 /mnt/nas/share1
 ```
+## mount cifs with right version
+```
+mount -t cifs -o vers=[1234].0 //nas/share1 /mnt/nas/share1
+```
 
 ## install tmux on CentOS 6.4
 
