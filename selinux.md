@@ -16,3 +16,15 @@ semodule -i myadditionalselinuxmodule01.pp
 
 then re-enable SELINUX=enforcing
 ```
+
+### apply SE permissions from one file to another file
+```
+chcon --reference=/old/file /new/file
+(works for directories,too)
+```
+e.g. if "selinux permission denied" in /var/log/audit
+
+### see SE linux info of files
+```
+ls -lZ
+```
