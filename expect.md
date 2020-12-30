@@ -32,3 +32,21 @@ send -i $spawn_id "Cookie: mycookie01=\"value01\"; mycookie02=value02; mycookie0
 send -i $spawn_id "\n"
 expect -i $spawn_id "closed"
 ```
+
+
+#### set up mongodb replica set
+
+```
+#!/bin/expect
+spawn mongo --host db1.example.com --port 27017
+expect " > "
+send "rs.initiate()\n";
+expect "SECONDARY> "
+send "\n";
+expect "PRIMARY> "
+send "rs.add(\"db1.example.com:27018\")\n";
+expect "PRIMARY> "
+send "rs.add(\"db1.example.com:27019\")\n";
+interact
+
+```
