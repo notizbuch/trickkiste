@@ -38,7 +38,7 @@ expect -i $spawn_id "closed"
 
 ```
 #!/bin/expect
-spawn mongo --host opsmgr.h4st.com --port 27017
+spawn mongo --host opsmgr.example.com --port 27017
 expect " > "
 send "rs.initiate()\n";
 expect "SECONDARY> "
@@ -51,9 +51,9 @@ send "a.members\[0\].priority=20\n";
 expect "PRIMARY> "
 send "rs.reconfig(a)\n";
 expect "PRIMARY> "
-send "rs.add(\"opsmgr.h4st.com:27018\")\n";
+send "rs.add(\"opsmgr.example.com:27018\")\n";
 expect "PRIMARY> "
-send "rs.add(\"opsmgr.h4st.com:27019\")\n";
+send "rs.add(\"opsmgr.example.com:27019\")\n";
 expect "PRIMARY> "
 interact
 ```
