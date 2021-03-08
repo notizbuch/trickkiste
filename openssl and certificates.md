@@ -66,3 +66,9 @@ server {
 ```
 openssl s_client -connect myserver:443 | openssl x509 -text -dates
 ```
+
+#### compare public key of certificate with public key of private key
+```
+openssl pkey -in file.key -pubout -outform pem        | sha256sum
+openssl x509 -in cert.pem -pubkey -noout -outform pem | sha256sum
+```
