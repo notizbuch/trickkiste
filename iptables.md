@@ -55,6 +55,12 @@ iptables -t nat -I PREROUTING --src 0/0 --dst 192.168.1.1 -p tcp --dport 443 -j 
 can be in /etc/rc.local
 
 
+#### use port on host to forward to another host:port
+```
+iptables -t nat -A OUTPUT -p tcp --dport 443 -j DNAT --to-destination DESTINATIONHOST:PORT
+```
+
+
 #### firewalld
 ```
 firewall-cmd --list-all
