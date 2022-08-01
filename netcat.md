@@ -20,3 +20,8 @@
     Host: example.com
 
 ```
+
+## netcat act as proxy, listening on 80 and forwarding to server1, writing HTTP requests to /tmp/log1
+```
+ncat -lkv 0.0.0.0 80 -c 'tee /tmp/log1 | ncat -v server1.example.com 8080 | tee /tmp/log2'
+```
