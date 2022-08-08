@@ -1,5 +1,14 @@
 # linux
 
+## SimpleHTTPServer / http.server
+```
+python3 -m http.server
+python3 -m http.server 8080
+python -m http.server 8000 --bind 127.0.0.1
+python3 -m http.server --help
+python -m SimpleHTTPServer
+```
+
 ## mount so regular user has full access
 ```
 mount -t cifs -o file_mode=0777,dir_mode=0777 //nas/share1 /mnt/nas/share1
