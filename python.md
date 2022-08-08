@@ -1,6 +1,6 @@
 # python
 
-## SimpleHTTPServer / http.server
+### SimpleHTTPServer / http.server
 ```
 python3 -m http.server
 python3 -m http.server 8080
