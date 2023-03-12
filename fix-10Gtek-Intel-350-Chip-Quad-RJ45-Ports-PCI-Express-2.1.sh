@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if test "$(ps -ef|grep -v grep|grep $0|wc -l)" -gt 2;then exit; fi
+# if test "$(ps -ef|grep -v grep|grep $0|wc -l)" -gt 2;then exit; fi
 
 # if starting via /etc/crontab which creates 2 processes, need 3:
-# if test "$(ps -ef|grep -v grep|grep $0|wc -l)" -gt 3;then exit; fi
+if test "$(ps -ef|grep -v grep|grep $0|wc -l)" -gt 3;then exit; fi
 
 
 sleep 60
