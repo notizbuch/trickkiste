@@ -43,9 +43,9 @@ ifup enp5s0f3
 /usr/sbin/ethtool -A enp5s0f3 rx off tx off
 
 # add tap interfaces back to bridges
-#pfs to TELUS
+#pfs to T
 ip link set tap102i0 master vmbr1
-#pfs to EASTLINK
+#pfs to E
 ip link set tap102i3 master vmbr12
 
 # add the intel NICs back to bridges:
