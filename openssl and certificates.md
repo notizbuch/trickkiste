@@ -67,8 +67,19 @@ server {
 openssl s_client -connect myserver:443 | openssl x509 -text -dates
 ```
 
+#### check if signer matches between cert and key
+```
+openssl rsa -noout -modulus -in /cert.key
+openssl x509 -noout -modulus -in /cert.crt
+```
+
 #### compare public key of certificate with public key of private key
 ```
 openssl pkey -in file.key -pubout -outform pem        | sha256sum
 openssl x509 -in cert.pem -pubkey -noout -outform pem | sha256sum
+```
+
+#### split ca chain into separate files
+```
+awk 'BEGIN {ca=0;} /BEGIN CERT/{ca++} { print > "cert." ca ".pem"}' < ca.pem
 ```
