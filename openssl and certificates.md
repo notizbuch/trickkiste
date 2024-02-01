@@ -83,3 +83,8 @@ openssl x509 -in cert.pem -pubkey -noout -outform pem | sha256sum
 ```
 awk 'BEGIN {ca=0;} /BEGIN CERT/{ca++} { print > "cert." ca ".pem"}' < ca.pem
 ```
+
+#### check one cert is issuer of another cert (without complete chain):
+```
+openssl verify -no-CAfile -no-CApath -partial_chain -trusted intermediateCA.crt pem.pem
+```
